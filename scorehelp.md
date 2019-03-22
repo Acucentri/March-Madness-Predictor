@@ -1,0 +1,22 @@
+- The data provided are intended for use with computer databases, spreadsheets, or other software programs.
+- Data are provided as-is, with no guarantees of accuracy.
+- Please reference MasseyRatings.com if you use any of this data in your calculations or research.
+- Intra - list games if both teams are members of the selected conference
+- Inter - list games that involve a team outside the selected conference
+- Fixed-width text format - one line per game with fields:
+  - Date (YYYY-MM-DD)
+  - Team 1 (prefixed by &#39;@&#39; if played at home)
+  - Team 1&#39;s score
+  - Team 2 (prefixed by &#39;@&#39; if played at home)
+  - Team 2&#39;s score
+  - Flags: P=playoff, F=forfeit, S=stricken, E=exhibition, O?=overtime
+  - Note: may include game title or venue information
+- Matlab Games - CSV file with the following fields:
+  - days since 1-1-0000
+  - YYYYMMDD
+  - team1 index (zero if a non-conference team)
+  - homefield1 (1=home, -1=away, 0=neutral)
+  - score1
+  - team2 index (zero if a non-conference team)
+  - homefield2 (1=home, -1=away, 0=neutral)
+  - score2
