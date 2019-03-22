@@ -20,3 +20,6 @@
   - team2 index (zero if a non-conference team)
   - homefield2 (1=home, -1=away, 0=neutral)
   - score2
+- Matlab Teams - CSV file with the following fields:
+  - team id
+  - team name
