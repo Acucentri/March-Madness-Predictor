@@ -47,6 +47,16 @@ class MarchMadness {
          * linear system of equations.
          */
         void display();
+
+        /**
+         * Reformat
+         */
+        void reformatDocumentTeam(std::string file);
+
+        /**
+         * Reformat
+         */
+        void reformatDocumentGame(std::string file);
 };
 
 #endif //MARCHMADNESS_MARCHMADNESS_H

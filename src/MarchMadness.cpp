@@ -35,24 +35,13 @@
         std::string team, index;
         std::ifstream in2(teamFileName);
 
-        getline(in2,index,'\n');
-        getline(in2,index,'\n');
-        getline(in2,index,'\n');
-        getline(in2,index,'\n');
-        getline(in2,index,'\n');
-        getline(in2,index,'\n');
-        getline(in2,index,'\n');
-        getline(in2,index,'\n');
-        getline(in2,index,'\n');
-
         while( getline(in2,index, ',') )
         {
 
             getline(in2,team,'\n');
-            team.pop_back();
 
             std::cout << index << '\t'
-            << team << '\n';
+                      << team << '\n';
         }
     }
 
@@ -67,15 +56,6 @@
         std::string index,date,team1,field1,score1,team2,field2,score2;
 
         std::ifstream in1(gameFileName);
-        getline(in1,index,'\n');
-        getline(in1,index,'\n');
-        getline(in1,index,'\n');
-        getline(in1,index,'\n');
-        getline(in1,index,'\n');
-        getline(in1,index,'\n');
-        getline(in1,index,'\n');
-        getline(in1,index,'\n');
-        getline(in1,index,'\n');
 
         while( getline(in1,index, ',') )
         {
@@ -87,7 +67,6 @@
             getline(in1,team2,',');
             getline(in1,field2,',');
             getline(in1,score2,'\n');
-            score2.pop_back();
 
             std::cout << index << '\t'
                       << date << '\t'
@@ -106,7 +85,68 @@
      */
     void MarchMadness::display() {
 
+    }
 
+    /**
+     * This method is responsible for reformatting the Game File
+     * @param file file name
+     */
+    void MarchMadness::reformatDocumentGame(std::string file) {
+        std::string index,date,team1,field1,score1,team2,field2,score2;
+
+        std::ofstream myfile;
+        std::string newFileName = file.substr (0,file.size()-4);
+        myfile.open(newFileName+"(New).txt");
+
+        std::ifstream in1(file);
+
+        while( getline(in1,index, ',') ) {
+
+            getline(in1, date, ',');
+            getline(in1, team1, ',');
+            getline(in1, field1, ',');
+            getline(in1, score1, ',');
+            getline(in1, team2, ',');
+            getline(in1, field2, ',');
+            getline(in1, score2, ' ');
+            getline(in1, score2, ' ');
+
+            myfile << index << ','
+                      << date << ','
+                      << team1 << ','
+                      << field1 << ','
+                      << score1 << ','
+                      << team2 << ','
+                      << field2 << ','
+                      << score2 << '\n';
+        }
+
+        myfile.close();
+    }
+
+    /**
+     * This method is responsible for reformatting the Team File
+     * @param file file name
+     */
+    void MarchMadness::reformatDocumentTeam(std::string file) {
+        std::string team, index;
+
+        std::ifstream in2(file);
+
+        std::ofstream myfile;
+        std::string newFileName = file.substr (0,file.size()-4);
+        myfile.open(newFileName+"(New).txt");
+
+        while( getline(in2,index, ',') )
+        {
+
+            getline(in2,team,' ');
+            getline(in2,team,' ');
+
+            myfile << index << ','
+                      << team << '\n';
+        }
+        myfile.close();
     }
 
     /**

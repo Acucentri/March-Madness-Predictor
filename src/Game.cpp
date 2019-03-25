@@ -18,7 +18,7 @@
     std::string date;
 
     //One of the teams that played in the game
-    Team team1;
+    int team1;
 
     //The score that the first team had
     int score1;
@@ -27,7 +27,7 @@
     int field1;
 
     //One of the teams that played in the game
-    Team team2;
+    int team2;
 
     //The score that the second team had
     int score2;
@@ -41,10 +41,10 @@
      */
     Game::Game(){
         setDate(nullptr);
-        setTeam1(Team());
+        setTeam1(-1);
         setScore1(-1);
         setField1(-2);
-        setTeam1(Team());
+        setTeam1(-1);
         setScore1(-1);
         setField1(-2);
     }
@@ -60,7 +60,7 @@
      * @param score2 the score of the second game
      * @param field2 the field for the second team
      */
-    Game::Game(std::string date,Team team1, int score1, int field1, Team team2, int score2, int field2){
+    Game::Game(std::string date,int team1, int score1, int field1, int team2, int score2, int field2){
         setDate(date);
         setTeam1(team1);
         setScore1(score1);
@@ -90,7 +90,7 @@
      * sets the team to a parameter value
      * @param team1 the new team
      */
-    void Game::setTeam1(Team team1){
+    void Game::setTeam1(int team1){
         this->team1 = team1;
     }
 
@@ -98,7 +98,7 @@
      * gets the current team1
      * @return the current team1
      */
-    Team Game::getTeam1(){
+    int Game::getTeam1(){
         return this->team1;
     }
 
@@ -138,7 +138,7 @@
      * sets the team2 to a parameter value
      * @param team2 the new team2
      */
-    void Game::setTeam2(Team team2){
+    void Game::setTeam2(int team2){
         this->team2 = team2;
     }
 
@@ -147,7 +147,7 @@
      * gets the current team2
      * @return the current team2
      */
-    Team Game::getTeam2(){
+    int Game::getTeam2(){
         return this->team2;
     }
 

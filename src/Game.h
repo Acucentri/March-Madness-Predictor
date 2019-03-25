@@ -26,7 +26,7 @@ public:
     std::string date;
 
     //One of the teams that played in the game
-    Team team1;
+    int team1;
 
     //The score that the first team had
     int score1;
@@ -35,7 +35,7 @@ public:
     int field1;
 
     //One of the teams that played in the game
-    Team team2;
+    int team2;
 
     //The score that the second team had
     int score2;
@@ -61,7 +61,7 @@ public:
      * @param score2 the score of the second game
      * @param field2 the field for the second team
      */
-    Game(std::string date,Team team1, int score1, int field1, Team team2, int score2, int field2);
+    Game(std::string date,int team1, int score1, int field1, int team2, int score2, int field2);
 
     /**
      * sets the date of to a parameter value
@@ -79,13 +79,13 @@ public:
      * sets the team to a parameter value
      * @param team1 the new team 
      */
-    void setTeam1(Team team1);
+    void setTeam1(int team1);
 
     /**
      * gets the current team1
      * @return the current team1
      */
-    Team getTeam1();
+    int getTeam1();
 
     /**
      * sets the score1 to a parameter value
@@ -115,14 +115,14 @@ public:
      * sets the team2 to a parameter value
      * @param team2 the new team2 
      */
-    void setTeam2(Team team2);
+    void setTeam2(int team2);
 
 
     /**
      * gets the current team2
      * @return the current team2
      */
-    Team getTeam2();
+    int getTeam2();
 
     /**
      * sets the score2 to a parameter value
