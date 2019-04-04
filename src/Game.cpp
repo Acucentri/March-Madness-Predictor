@@ -60,14 +60,14 @@
      * @param score2 the score of the second game
      * @param field2 the field for the second team
      */
-    Game::Game(std::string date,int team1, int score1, int field1, int team2, int score2, int field2){
+    Game::Game(std::string date,int team1, int field1, int score1, int team2, int field2, int score2){
         setDate(date);
         setTeam1(team1);
         setScore1(score1);
         setField1(field1);
-        setTeam1(team2);
-        setScore1(score2);
-        setField1(field2);
+        setTeam2(team2);
+        setScore2(score2);
+        setField2(field2);
     }
 
     /**
@@ -205,5 +205,11 @@
      * @return the game object as a string.
      */
     std::string Game::toString(){
-        return "";
+        return  "\t" + this->getDate() + " : "
+                + std::to_string(this->getTeam1()) + " : "
+                + std::to_string(this->getScore1()) + " : "
+                + std::to_string(this->getField1()) + " : "
+                + std::to_string(this->getTeam2()) + " : "
+                + std::to_string(this->getScore2()) + " : "
+                + std::to_string(this->getField2()) + "\n";
     }

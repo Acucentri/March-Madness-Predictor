@@ -41,9 +41,9 @@
      * @param numGamesPlayed the number of games played
      * @param teamName the team name
      */
-    Team::Team(int id, int numGamesPlayed, std::string teamName){
+    Team::Team(int id, std::string teamName){
         setID(id);
-        setNumGamesPlayed(numGamesPlayed);
+        setNumGamesPlayed(-1);
         setTeamName(teamName);
     }
 
@@ -115,7 +115,9 @@
      * displays all of the games that this team has played
      */
     void Team::displayGames(){
-
+        for(Game g: gameCollection){
+            std::cout<< g.toString();
+        }
     }
 
     /**

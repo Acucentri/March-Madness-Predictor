@@ -46,7 +46,7 @@ public:
      * @param numGamesPlayed the number of games played
      * @param teamName the team name
      */
-    Team(int id, int numGamesPlayed, std::string teamName);
+    Team(int id, std::string teamName);
 
 
     /**

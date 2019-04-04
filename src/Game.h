@@ -61,7 +61,7 @@ public:
      * @param score2 the score of the second game
      * @param field2 the field for the second team
      */
-    Game(std::string date,int team1, int score1, int field1, int team2, int score2, int field2);
+    Game(std::string date,int team1, int field1, int score1, int team2, int field2, int score2);
 
     /**
      * sets the date of to a parameter value
