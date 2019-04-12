@@ -296,7 +296,9 @@
         std::string teamFileName, gameFileName;
         std::cout << "Please input the name of the team file:" << "\n";
         std::cin >> teamFileName;
+        teamFileName = "../"+teamFileName +".txt";
         std::cout << "Please input the name of the game file:" << "\n";
         std::cin >> gameFileName;
+        gameFileName = "../"+gameFileName +".txt";
         MarchMadness m = MarchMadness(teamFileName,gameFileName);
     }
