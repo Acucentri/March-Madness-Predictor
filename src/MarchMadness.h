@@ -37,7 +37,7 @@ class MarchMadness {
          * @param size The number of teams
          * @param teamCollection the collection of teams
          */
-        void ConstructMatrix(Eigen::MatrixXf *m, Eigen::VectorXf *b, const size_t size, std::vector<Team> teamCollection);
+        void ConstructMatrix(Eigen::MatrixXf *m, Eigen::VectorXf *b, const size_t size, std::vector<Team> teamCollection, std::vector<tm> dates);
 
         /**
          * This method is used to sort the solution to the system of linear equations. Then, this solution is
@@ -61,7 +61,25 @@ class MarchMadness {
          * team1, score1, field1, team2, score2, and field2
          * @param gameFileName
          */
-        void readInGames(std::string gameFileName,std::vector<Team> *teamCollection);
+        std::vector<tm> readInGames(std::string gameFileName,std::vector<Team> *teamCollection);
+
+        /**
+         * Modifies the day, month and year parameters to reflect adding a certain number of days.
+         * This is used to construct the different date frames.
+         * @param month the month
+         * @param day the day
+         * @param year the year
+         * @param num_of_days the number of days being added to the date
+         * @return true if the date was changed successfully
+         */
+        bool add_num_of_days(int* month, int* day, int* year, int num_of_days);
+
+        /**
+         * This method takes in the dates and creates the different date frames. It finds the
+         * earliest and latest date, and then constructs 4 date ranges.
+         * @return a vector containing the partitioned dates
+         */
+        std::vector<tm> configureDates(std::vector<tm> dates);
 
         /**
          * This method is responsible for displaying the Matrix and the solution to the
