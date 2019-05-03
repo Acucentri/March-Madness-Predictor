@@ -85,7 +85,7 @@ class MarchMadness {
          * This method is responsible for displaying the Matrix and the solution to the
          * linear system of equations.
          */
-        void display(Eigen::MatrixXf *m, Eigen::VectorXf *b, std::vector<std::pair<int, long double>> *s, const size_t size, std::vector<Team> *teamCollection);
+        void display(Eigen::MatrixXf *m, Eigen::VectorXf *b, std::vector<std::pair<int, long double>> *s, const size_t size, std::vector<Team> *teamCollection, std::string file);
 
         /**
          * Reformat

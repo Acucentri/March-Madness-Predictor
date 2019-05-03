@@ -60,7 +60,7 @@
             auto end = sc.now();
 
             //Prints the Matrix into an output file
-            display(&m, &b, &s, size, &teamCollection);
+            display(&m, &b, &s, size, &teamCollection, teamFileName);
 
             //Print execution time
             auto time_span = static_cast<std::chrono::duration<double>>(end - start);
@@ -312,7 +312,7 @@
     /**
      * This method is responsible for displaying the Matrix
      */
-    void MarchMadness::display(Eigen::MatrixXf *m, Eigen::VectorXf *b, std::vector<std::pair<int, long double>> *s, const size_t size, std::vector<Team> *teamCollection) {
+    void MarchMadness::display(Eigen::MatrixXf *m, Eigen::VectorXf *b, std::vector<std::pair<int, long double>> *s, const size_t size, std::vector<Team> *teamCollection, std::string file) {
         /*for (int i = 0; i < size-1; i++) {
             std::cout << m->block(i,0,1,size);
             std::cout << std::setw(3) << " = " << b->row(i) << "\n";
@@ -323,10 +323,35 @@
         }
         std::cout << "= " << b->row(size-1) << "\n";*/
 
-        std::cout << "\nSOLUTION:\n";
-        // display the items in sorted order of values
-        for (std::pair<int, long double> element : *s) {
-            std::cout << std::setw(15) << teamCollection->at(element.first).getTeamName() << " :: " << std::setw(10)<< element.second << std::endl;
+        if(file == ("../NationalBasketballAssociationTeams.txt")) {
+            std::string team;
+            std::ifstream in2("../NBA_Results.txt");
+            std::vector<std::string> results;
+
+            while (getline(in2, team)) {
+                results.push_back(team);
+            }
+
+            std::cout << "\n" << std::setw(17) << "SOLUTION :" << std::setw(17) << " | " << std::setw(20) << "RESULTS:" << std::endl;
+            std::cout << std::setfill('~') << std::setw(33) << "|" << std::setw(26) << "\n";
+            // display the items in sorted order of values
+            int counter = 0;
+            std::cout << std::setfill(' ');
+            for (std::pair<int, long double> element : *s) {
+                std::cout << std::setw(15) << teamCollection->at(element.first).getTeamName() << " :: " << std::setw(10)
+                          << element.second << std::setw(5) << " | " << std::setw(20) << results.at(counter++)
+                          << std::endl;
+            }
+        }
+        else{
+            std::cout << "\n" << std::setw(17) << "SOLUTION :" << std::endl;
+            std::cout << std::setfill('~') << std::setw(35) << "\n";
+            // display the items in sorted order of values
+            std::cout << std::setfill(' ');
+            for (std::pair<int, long double> element : *s) {
+                std::cout << std::setw(15) << teamCollection->at(element.first).getTeamName() << " :: " << std::setw(10)
+                          << element.second << std::endl;
+            }
         }
     }
 
